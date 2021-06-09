@@ -62,21 +62,31 @@ public class ClienteVista {
         long id=teclado.nextLong();
         System.out.println("Nombre: ");
         String nombre=teclado.next();
+        System.out.println("Apellido: ");
+        String apellido=teclado.next();
         System.out.println("Cedula: ");
         String cedula=teclado.next();
         System.out.println("Fiabilidad de Pago: ");
         String fiabilidadPago=teclado.next();
-        boolean resultado = clienteControlador.crear(id, nombre, cedula, fiabilidadPago,facturaControlador.getSeleccionado());
+        boolean resultado = clienteControlador.crear(id, nombre, apellido, cedula, fiabilidadPago,facturaControlador.getSeleccionado());
         System.out.println("Cliente creado: "+resultado);
         
     }
+        public Cliente buscar(){
+        System.out.println("Buscar Cliente");
+        System.out.println("Cedula: ");
+        String cedula=teclado.next();
+        Cliente cliente= clienteControlador.buscar(cedula);
+        System.out.println(cliente);
+        return cliente;
+    }
     public void actualizar(){
         System.out.println("Actualizar");
-        System.out.println("Nombre: ");
-        String nombreAnterior=teclado.next();
-        System.out.println("Nombre Nuevo: ");
-        String nombre=teclado.next();
-        boolean resultado=clienteControlador.acutalizar(nombreAnterior,nombre);
+        System.out.println("Cedula: ");
+        String cedulaAnterior=teclado.next();
+        System.out.println("Cedula nueva: ");
+        String cedula=teclado.next();
+        boolean resultado=clienteControlador.acutalizar(cedulaAnterior,cedula);
         System.out.println("Cliente actualizado: "+resultado);
     }
     public void eliminar(){
@@ -86,14 +96,7 @@ public class ClienteVista {
         boolean resultado=clienteControlador.eliminar(cedula);
         System.out.println("Cliente eliminaro: "+ resultado);
     }
-    public Cliente buscar(){
-        System.out.println("Buscar Cliente");
-        System.out.println("Cedula: ");
-        String cedula=teclado.next();
-        Cliente cliente= clienteControlador.buscar(cedula);
-        System.out.println(cliente);
-        return cliente;
-    }
+
     public void asignarSeleccionado(Cliente cliente){
     clienteControlador.setSeleccionado(cliente);
     }

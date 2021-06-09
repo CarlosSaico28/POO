@@ -69,27 +69,24 @@ public void crear(){
     boolean resultado=productoControlador.crear(id, descripcion, precioUnitario, stock, iva);
     System.out.println("Creado= "+resultado);
 }
-public void actualizar(){
-    System.out.println("Actualoizar-Ingrese losn siguientes datos: ");
-    System.out.println("Id");
-    Long id=teclado.nextLong();
-    System.out.println("Descripcion");
-    String descripcion=teclado.next();
-    System.out.println("Precio Unitario");
-    double precioUnitario=teclado.nextDouble();
-    System.out.println("Stock");
-    int stock=teclado.nextInt();
-    System.out.println("Iva");
-    double iva=teclado.nextDouble();
-    boolean resultado= productoControlador.actualizar(id, descripcion, precioUnitario, stock, iva);
-    System.out.println("Actualizado: "+resultado);
-}
 public Producto buscar(){
     System.out.println("Ingrese Descripcion");
     String descripcion=teclado.next();
     Producto producto= productoControlador.buscar(descripcion); 
+    System.out.println(producto);
     return producto;
 }
+
+public void actualizar(){
+    System.out.println("Actualizar ");
+    System.out.println("Descripcion: ");
+    String descripcionAnterior=teclado.next();
+    System.out.println("Descripcion Nueva: ");
+    String descripcion=teclado.next();
+    boolean resultado= productoControlador.actualizar(descripcionAnterior, descripcion);
+    System.out.println("Actualizado: "+resultado);
+}
+
 public void eliminar(){
     System.out.println("Ingrese la descripción");
     String descripcion=teclado.next();

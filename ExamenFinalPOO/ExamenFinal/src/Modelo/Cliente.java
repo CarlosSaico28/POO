@@ -15,6 +15,7 @@ import java.util.List;
 public class Cliente {
    private long id;
    private String nombre;
+   private String apellido;
    private String cedula;
    private String fiabilidadPago;
    private Factura factura;
@@ -24,25 +25,28 @@ public class Cliente {
    this.id=-1;
    }
 
-    public Cliente(long id, String nombre, String cedula, String fiabilidadPago) {
+    public Cliente(long id, String nombre,  String apellido,String cedula, String fiabilidadPago) {
         this.id = id;
         this.nombre = nombre;
+        this.apellido=apellido;
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
         this.listaProducto=new ArrayList();
     }
-    public Cliente(long id, String nombre, String cedula, String fiabilidadPago,Factura factura,List<Producto> listaProducto) {
+    public Cliente(long id, String nombre,String apellido, String cedula, String fiabilidadPago,Factura factura,List<Producto> listaProducto) {
         this.id = id;
         this.nombre = nombre;
+        this.apellido=apellido;
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
         this.factura=factura;
         this.listaProducto = listaProducto;
     }
 
-    public Cliente(long id, String nombre, String cedula, String fiabilidadPago, Factura factura) {
+    public Cliente(long id, String nombre, String apellido,String cedula, String fiabilidadPago, Factura factura) {
         this.id = id;
         this.nombre = nombre;
+        this.apellido=apellido;
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
         this.factura=factura;
@@ -63,6 +67,14 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCedula() {
@@ -99,9 +111,10 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", cedula=" + cedula + ", fiabilidadPago=" + fiabilidadPago + ", factura=" + factura  + '}';
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fiabilidadPago=" + fiabilidadPago + ", factura=" + factura + ", listaProducto=" + listaProducto + '}';
     }
 
+   
     
    
 }

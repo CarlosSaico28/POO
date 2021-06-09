@@ -69,15 +69,15 @@ public class FacturaVista {
         System.out.println("Creado= "+resultado);
     }
     public void actualizar(){
-        System.out.println("Producto");
-        String productoAnterior=teclado.next();
-        System.out.println("Producto Nuevo");
-        String producto=teclado.next();
-        boolean resultado= facturaControlador.actualizar(productoAnterior, producto);
+        System.out.println("Fecha");
+        String fechaAnterior=teclado.next();
+        System.out.println("Fecha Nueva");
+        String fecha=teclado.next();
+        boolean resultado= facturaControlador.actualizar(fechaAnterior, fecha);
         System.out.println("Actualizado= "+resultado);
     }
     public Factura buscar(){
-        System.out.println("Producto");
+        System.out.println("Fecha");
         String producto=teclado.next();
         Factura factura=facturaControlador.buscar(producto);
         System.out.println(factura);
@@ -87,9 +87,9 @@ public class FacturaVista {
     facturaControlador.setSeleccionado(factura);
     }
     public void eliminar(){
-        System.out.println("Producto");
-        String producto= teclado.next();
-        boolean resultado=facturaControlador.eliminar(producto);
+        System.out.println("Fecha");
+        String fecha= teclado.next();
+        boolean resultado=facturaControlador.eliminar(fecha);
         System.out.println("Eliminado= "+resultado);
     }
     public void imprimir(){

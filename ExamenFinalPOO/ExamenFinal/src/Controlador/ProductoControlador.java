@@ -41,18 +41,17 @@ return this.listaProducto.add(producto);
 
 public Producto buscar(String descripcion){
 for(Producto producto: listaProducto){
-if(producto.getDescripcion().equals(descripcion)){
+if(producto.getDescripcion().equals(descripcion)==true){
 return producto;
 }
 }
 return null;
 }
-public boolean actualizar (long id, String descripcion, double precioUnitario, int stock, double iva){
-Producto producto = this.buscar(descripcion);
+public boolean actualizar ( String descripcionAnterior, String descripcionNuevo ){
+Producto producto = this.buscar(descripcionAnterior);
 if(producto !=null){
 int posicion= listaProducto.indexOf(producto);
-producto.setDescripcion(descripcion);
-producto.setStock(stock);
+producto.setDescripcion(descripcionNuevo);
 listaProducto.set(posicion,producto);
 return true;
 }
@@ -61,7 +60,6 @@ return false;
 public boolean eliminar(String descripcion){
 Producto producto= this.buscar(descripcion);
 if(producto !=null){
-producto.getComprador().getListaProducto().remove(producto);
 return listaProducto.remove(producto);
 }
 return false;

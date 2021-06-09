@@ -42,7 +42,7 @@ public class VistaGeneral {
                 this.cliente();
                 break;
             case 3:
-                this.producto();
+                productoVista.menu();
                 break;     
         }
     }while(opcion<4);
@@ -59,17 +59,5 @@ public class VistaGeneral {
             this.cliente();
         }
     }
-    public void producto(){
-        System.out.println("Seleccione un comprador para gestionar los productos");
-        Cliente cliente=clienteVista.buscar();
-        if(cliente !=null){
-        clienteVista.asignarSeleccionado(cliente);
-        productoVista.menu();
-        }
-        else{
-            System.out.println("No existe la factura");
-            this.producto();
-        }
-        
-}
+
 }

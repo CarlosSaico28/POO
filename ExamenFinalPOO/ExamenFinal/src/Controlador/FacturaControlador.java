@@ -28,9 +28,9 @@ Factura factura= new Factura(id,fecha,producto,cantidad,valor);
 return listaFactura.add(factura);
 }
 
-public Factura buscar(String producto){
+public Factura buscar(String fecha){
 for(Factura factura:listaFactura){
-if(factura.getProducto().equals(producto))
+if(factura.getFecha().equals(fecha))
     return factura;
 }
 return null;
@@ -46,8 +46,8 @@ return true;
 }
 return false;
 }
-public boolean eliminar(String producto){
-Factura factura = this.buscar(producto);
+public boolean eliminar(String fecha){
+Factura factura = this.buscar(fecha);
 if(factura !=null){
 return listaFactura.remove(factura);
 }

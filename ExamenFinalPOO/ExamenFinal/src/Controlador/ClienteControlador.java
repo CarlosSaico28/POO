@@ -23,17 +23,16 @@ public class ClienteControlador {
     seleccionado= null;
     }
 // CRUD -> Create, Read , Update, Delete -- Crear Leer/Buscar Actualizar Eliminar    
-public boolean crear(long id, String nombre, String cedula, String fiabilidadPago){
-Cliente cliente= new Cliente(id, nombre, cedula, fiabilidadPago);
+public boolean crear(long id, String nombre,String apellido, String cedula, String fiabilidadPago){
+Cliente cliente= new Cliente(id, nombre,apellido, cedula, fiabilidadPago);
 return listaCliente.add(cliente);
 }
 
-public boolean crear(long id, String nombre, String cedula,String fiabilidadPago, Factura factura) {
-        Cliente cliente = new Cliente(id, nombre, cedula, fiabilidadPago,factura); // Creo un nuevo cliente
+public boolean crear(long id, String nombre, String apellido,String cedula,String fiabilidadPago, Factura factura) {
+        Cliente cliente = new Cliente(id, nombre, apellido,cedula, fiabilidadPago,factura); // Creo un nuevo cliente
         factura.getListaCliente().add(cliente);
         return listaCliente.add(cliente); 
     }
-
 
 public Cliente buscar(String cedula){
     for (Cliente cliente : listaCliente){
@@ -43,11 +42,11 @@ public Cliente buscar(String cedula){
 }
 return null;
 }
-public boolean acutalizar(String nombreAnterior, String nombreNuevo){
-    Cliente cliente = this.buscar(nombreAnterior);
+public boolean acutalizar(String cedulaAnterior, String cedulaNuevo){
+    Cliente cliente = this.buscar(cedulaAnterior);
     if(cliente !=null){
         int posicion=listaCliente.indexOf(cliente);
-        cliente.setNombre(nombreNuevo);
+        cliente.setCedula(cedulaNuevo);
         listaCliente.set(posicion,cliente);
     return true;
 }
