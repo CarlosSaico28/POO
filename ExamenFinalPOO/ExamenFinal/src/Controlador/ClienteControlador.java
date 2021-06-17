@@ -28,11 +28,6 @@ Cliente cliente= new Cliente(id, nombre,apellido, cedula, fiabilidadPago);
 return listaCliente.add(cliente);
 }
 
-public boolean crear(long id, String nombre, String apellido,String cedula,String fiabilidadPago, Factura factura) {
-        Cliente cliente = new Cliente(id, nombre, apellido,cedula, fiabilidadPago,factura); // Creo un nuevo cliente
-        factura.getListaCliente().add(cliente);
-        return listaCliente.add(cliente); 
-    }
 
 public Cliente buscar(String cedula){
     for (Cliente cliente : listaCliente){

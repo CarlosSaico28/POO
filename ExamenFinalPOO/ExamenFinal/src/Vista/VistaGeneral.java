@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.FacturaControlador;
 import Modelo.Cliente;
 import Modelo.Factura;
 import java.util.Scanner;
@@ -20,26 +21,27 @@ public class VistaGeneral {
     private Scanner teclado;
     
     public VistaGeneral(){
-    facturaVista= new FacturaVista();
-    clienteVista= new ClienteVista(facturaVista.getFacturaControlador());
-    productoVista= new ProductoVista(clienteVista.getClienteControlador());
+        FacturaControlador facturaControlador = null;
+    clienteVista= new ClienteVista(facturaControlador);
+    facturaVista= new FacturaVista(clienteVista.getClienteControlador());
+    productoVista= new ProductoVista(facturaVista.getFacturaControlador());
     teclado=new Scanner(System.in); 
     }
     public void menu(){
     int opcion=0;
     do{
         System.out.println("Seleccione una opción");
-        System.out.println("1. Factura");
-        System.out.println("2. Cliente");
+        System.out.println("1. Cliente");
+        System.out.println("2. Factura");
         System.out.println("3. Producto");
         System.out.println("4. Salir");
         opcion=teclado.nextInt();
         switch(opcion){
             case 1: 
-                facturaVista.menu();
+                clienteVista.menu();
                 break;
             case 2:
-                this.cliente();
+                this.factura();
                 break;
             case 3:
                 productoVista.menu();
@@ -47,16 +49,18 @@ public class VistaGeneral {
         }
     }while(opcion<4);
     }
-    public void cliente(){
-        System.out.println("Seleccione una factura para gestionar los clientes");
-        Factura factura= facturaVista.buscar();
-        if(factura !=null){
-        facturaVista.asignarSeleccionado(factura);
-        clienteVista.menu();
+
+    
+        public void factura(){
+        System.out.println("Seleccione un cliente para gestionar los clientes");
+        Cliente cliente= clienteVista.buscar();
+        if(cliente !=null){
+        clienteVista.asignarSeleccionado(cliente);
+        facturaVista.menu();
         }
         else{
             System.out.println("No existe la factura");
-            this.cliente();
+            this.factura();
         }
     }
 

@@ -19,7 +19,7 @@ public class Cliente {
    private String cedula;
    private String fiabilidadPago;
    private Factura factura;
-   private List<Producto>listaProducto;
+   private List<Factura>listaFactura;
    
    public Cliente(){
    this.id=-1;
@@ -31,16 +31,16 @@ public class Cliente {
         this.apellido=apellido;
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
-        this.listaProducto=new ArrayList();
+        this.listaFactura=new ArrayList();
     }
-    public Cliente(long id, String nombre,String apellido, String cedula, String fiabilidadPago,Factura factura,List<Producto> listaProducto) {
+    public Cliente(long id, String nombre,String apellido, String cedula, String fiabilidadPago,Factura factura,List<Factura> listaFactura) {
         this.id = id;
         this.nombre = nombre;
         this.apellido=apellido;
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
         this.factura=factura;
-        this.listaProducto = listaProducto;
+        this.listaFactura = listaFactura;
     }
 
     public Cliente(long id, String nombre, String apellido,String cedula, String fiabilidadPago, Factura factura) {
@@ -50,7 +50,7 @@ public class Cliente {
         this.cedula = cedula;
         this.fiabilidadPago = fiabilidadPago;
         this.factura=factura;
-        this.listaProducto=new ArrayList();
+        this.listaFactura=new ArrayList();
     }
 
     public long getId() {
@@ -101,20 +101,20 @@ public class Cliente {
         this.factura = factura;
     }
 
-    public List<Producto> getListaProducto() {
-        return listaProducto;
+    public List<Factura> getListaFactura() {
+        return listaFactura;
     }
 
-    public void setListaProducto(List<Producto> listaProducto) {
-        this.listaProducto = listaProducto;
+    public void setListaFactura(List<Factura> listaFactura) {
+        this.listaFactura = listaFactura;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fiabilidadPago=" + fiabilidadPago + ", factura=" + factura + ", listaProducto=" + listaProducto + '}';
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", fiabilidadPago=" + fiabilidadPago + ", factura=" + factura + ", listaFactura=" + listaFactura + '}';
     }
 
-   
+    
     
    
 }

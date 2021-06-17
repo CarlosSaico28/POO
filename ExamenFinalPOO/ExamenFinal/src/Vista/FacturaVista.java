@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.ClienteControlador;
 import Controlador.FacturaControlador;
 import Modelo.Cliente;
 import Modelo.Factura;
@@ -18,10 +19,12 @@ import java.util.Scanner;
 public class FacturaVista {
     private FacturaControlador facturaControlador;
     private Scanner teclado;
+    private ClienteControlador clienteControlador;
     
-    public FacturaVista(){
-    facturaControlador=new FacturaControlador();
-    teclado= new Scanner(System.in);
+    public FacturaVista(ClienteControlador clienteControlador){
+    this.teclado=new Scanner(System.in);
+    this.facturaControlador=new FacturaControlador();
+    this.clienteControlador= clienteControlador;
     }
     public void menu(){
     int opcion=0;
@@ -65,7 +68,7 @@ public class FacturaVista {
         int cantidad=teclado.nextInt();
         System.out.println("Valor: ");
         double valor=teclado.nextDouble();
-        boolean resultado= facturaControlador.crear(id,fecha, producto, cantidad, valor);
+        boolean resultado= facturaControlador.crear(id,fecha, producto, cantidad, valor,clienteControlador.getSeleccionado());
         System.out.println("Creado= "+resultado);
     }
     public void actualizar(){

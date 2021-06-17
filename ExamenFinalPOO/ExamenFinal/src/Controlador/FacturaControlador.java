@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
 import Modelo.Factura;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +28,12 @@ public boolean crear(long id,String  fecha, String producto, int cantidad, doubl
 Factura factura= new Factura(id,fecha,producto,cantidad,valor);
 return listaFactura.add(factura);
 }
+public boolean crear(long id,String  fecha, String producto, int cantidad, double valor, Cliente cliente){
+Factura factura= new Factura(id,fecha,producto,cantidad,valor,cliente);
+cliente.getListaFactura().add(factura);
+return listaFactura.add(factura);
+}
+
 
 public Factura buscar(String fecha){
 for(Factura factura:listaFactura){

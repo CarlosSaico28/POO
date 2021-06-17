@@ -25,6 +25,7 @@ public class ClienteVista {
     this.clienteControlador=new ClienteControlador();
     this.facturaControlador= facturaControlador;
     }
+
     public void menu(){
     int opcion=0;
     do{
@@ -68,7 +69,7 @@ public class ClienteVista {
         String cedula=teclado.next();
         System.out.println("Fiabilidad de Pago: ");
         String fiabilidadPago=teclado.next();
-        boolean resultado = clienteControlador.crear(id, nombre, apellido, cedula, fiabilidadPago,facturaControlador.getSeleccionado());
+        boolean resultado = clienteControlador.crear(id, nombre, apellido, cedula, fiabilidadPago);
         System.out.println("Cliente creado: "+resultado);
         
     }

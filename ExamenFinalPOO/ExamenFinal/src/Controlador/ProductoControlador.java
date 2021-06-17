@@ -35,7 +35,6 @@ return this.listaProducto.add(producto);
 }
 public boolean crear (long id, String descripcion, double precioUnitario, int stock, double iva,Cliente comprador){
 Producto producto = new Producto(this.generarId(),descripcion,precioUnitario, stock, iva,comprador);
-comprador.getListaProducto().add(producto);
 return this.listaProducto.add(producto);
 }
 

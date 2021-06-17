@@ -19,6 +19,7 @@ public class Factura {
     private String producto;
     private int cantidad;
     private double valor;
+    private Cliente cliente;
     private List<Cliente> listaCliente;
     
     public Factura(){
@@ -35,14 +36,23 @@ public class Factura {
         this.valor = valor;
         this.listaCliente= new ArrayList(); 
     }
-        public Factura(long id, String  fecha, String producto, int cantidad, double valor,List<Cliente> listaCliente) {
+        public Factura(long id, String  fecha, String producto, int cantidad,Cliente cliente, double valor,List<Cliente> listaCliente) {
         this.id = id;
         this.fecha = fecha;
         this.producto = producto;
         this.cantidad = cantidad;
         this.valor = valor;
+        this.cliente=cliente;
         this.listaCliente= listaCliente;
        
+    }
+
+    public Factura(long id, String fecha, String producto, int cantidad, Cliente cliente, double valor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Factura(long id, String fecha, String producto, int cantidad, double valor, Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -55,11 +65,11 @@ public class Factura {
         this.id = id;
     }
 
-    public String  getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(String  fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -87,6 +97,14 @@ public class Factura {
         this.valor = valor;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public List<Cliente> getListaCliente() {
         return listaCliente;
     }
@@ -97,8 +115,12 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Factura{" + "id=" + id  + ", fecha=" + fecha + ", producto=" + producto + ", cantidad=" + cantidad + ", valor=" + valor + '}';
+        return "Factura{" + "id=" + id + ", fecha=" + fecha + ", producto=" + producto + ", cantidad=" + cantidad + ", valor=" + valor + ", cliente=" + cliente + ", listaCliente=" + listaCliente + '}';
     }
+
+
+
+
 
     
 }

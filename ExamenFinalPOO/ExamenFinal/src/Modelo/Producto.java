@@ -49,6 +49,10 @@ public class Producto {
         this.comprador = comprador;
         this.listaFactura=new ArrayList();
     }
+xxxxxxxxxxxxxxxxxxxxxx
+    public Producto(long generarId, String descripcion, double precioUnitario, int stock, double iva, Cliente comprador, Cliente cliente, Factura factura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public long getId() {
         return id;

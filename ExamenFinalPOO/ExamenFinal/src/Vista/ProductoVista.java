@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ClienteControlador;
+import Controlador.FacturaControlador;
 import Controlador.ProductoControlador;
 import Modelo.Producto;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ public class ProductoVista {
     private ClienteControlador clienteControlador;
     private Scanner teclado;
     
-    public ProductoVista(ClienteControlador clienteControlador){
+    public ProductoVista(FacturaControlador facturaControlador){
     this.clienteControlador=clienteControlador;
     productoControlador= new ProductoControlador();
     teclado= new Scanner(System.in);
